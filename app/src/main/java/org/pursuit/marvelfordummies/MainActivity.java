@@ -23,7 +23,6 @@ public final class MainActivity extends AppCompatActivity {
         for (int i = 0; i < 10; i++) {
             heroSummaryList.add(new DummyHero());
         }
-
         initHeroRecyclerView();
 
     }
