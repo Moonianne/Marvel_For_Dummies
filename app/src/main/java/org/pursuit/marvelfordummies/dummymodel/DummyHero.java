@@ -1,4 +1,4 @@
-package org.pursuit.marvelfordummies;
+package org.pursuit.marvelfordummies.dummymodel;
 
 public class DummyHero implements HeroSummary {
     @Override
