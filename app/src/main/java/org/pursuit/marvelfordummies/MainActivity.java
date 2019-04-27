@@ -6,19 +6,27 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import org.pursuit.marvelfordummies.recyclerview.HeroAdapter;
+import org.pursuit.marvelfordummies.util.MarvelUseCaseProvider;
 
 import java.util.Collections;
 
 public final class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity.DATA";
 
+    IMarvelUseCase useCase;
     HeroAdapter heroAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        useCase = MarvelUseCaseProvider.newInstance();
         initHeroRecyclerView();
+
+        useCase.getHeroList(liveHeroList -> heroAdapter.setData(liveHeroList),
+          () -> {
+              //No-op
+          });
     }
 
     private void initHeroRecyclerView() {
