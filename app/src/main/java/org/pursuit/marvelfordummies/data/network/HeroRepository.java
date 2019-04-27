@@ -1,20 +1,21 @@
 package org.pursuit.marvelfordummies.data.network;
 
 import org.pursuit.marvelfordummies.data.model.Hero;
-import org.pursuit.marvelfordummies.recyclerview.HeroSummary;
+import org.pursuit.marvelfordummies.domain.IHeroRepository;
 
 import java.util.List;
 
 import io.reactivex.Observable;
 import io.reactivex.schedulers.Schedulers;
 
-public final class HeroRepository {
+public final class HeroRepository implements IHeroRepository {
     private MarvelService marvelService;
 
     public HeroRepository() {
         marvelService = MarvelRetrofit.getInstance().create(MarvelService.class);
     }
 
+    @Override
     public Observable<List<Hero>> getHeroes() {
         HashCalculator hashCalculator = new HashCalculator();
         String timeStamp = String.valueOf(System.currentTimeMillis());
