@@ -2,9 +2,12 @@ package org.pursuit.marvelfordummies;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import org.pursuit.marvelfordummies.dummymodel.DummyHero;
+import org.pursuit.marvelfordummies.dummymodel.HeroSummary;
 import org.pursuit.marvelfordummies.recyclerview.HeroAdapter;
 
 import java.util.ArrayList;
