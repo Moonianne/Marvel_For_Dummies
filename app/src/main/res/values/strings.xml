@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Marvel For Dummies</string>
+    <string name="hero_name_tooltip">HERO NAME</string>
 </resources>
