@@ -1,6 +1,8 @@
 package org.pursuit.marvelfordummies.data.model;
 
-public final class Hero {
+import org.pursuit.marvelfordummies.recyclerview.HeroSummary;
+
+public final class Hero implements HeroSummary {
     public final int id;
     public final String name;
     public final String description;
@@ -19,6 +21,16 @@ public final class Hero {
         this.resourceURI = resourceURI;
         this.comics = comics;
         this.urls = urls;
+    }
+
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public String getImage() {
+        return thumbnail.path + ".jpg";
     }
 
     private final class Thumbnail {
@@ -42,7 +54,7 @@ public final class Hero {
             this.items = items;
         }
 
-        private final class Item{
+        private final class Item {
             String resourceURI;
             String name;
 

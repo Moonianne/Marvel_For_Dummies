@@ -1,4 +1,4 @@
-package org.pursuit.marvelfordummies.dummymodel;
+package org.pursuit.marvelfordummies.recyclerview;
 
 public interface HeroSummary {
     String getName();

@@ -1,6 +1,7 @@
 package org.pursuit.marvelfordummies.data.network;
 
 import org.pursuit.marvelfordummies.data.model.Hero;
+import org.pursuit.marvelfordummies.recyclerview.HeroSummary;
 
 import java.util.List;
 
