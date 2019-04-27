@@ -5,17 +5,16 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
-import org.pursuit.marvelfordummies.dummymodel.HeroSummary;
 import org.pursuit.marvelfordummies.R;
+import org.pursuit.marvelfordummies.data.model.Hero;
 
 import java.util.List;
 
 public class HeroAdapter extends RecyclerView.Adapter<HeroViewHolder> {
-    //TODO change genericList to list of objects from endpoint
-    private List<HeroSummary> heroSummaryList;
+    private List<Hero> heroList;
 
-    public HeroAdapter(List<HeroSummary> genericList) {
-        this.heroSummaryList = genericList;
+    public HeroAdapter(List<Hero> genericList) {
+        this.heroList = genericList;
     }
 
     @NonNull
@@ -26,12 +25,16 @@ public class HeroAdapter extends RecyclerView.Adapter<HeroViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull HeroViewHolder heroViewHolder, int i) {
-            heroViewHolder.onBind(heroSummaryList.get(i));
-
+        heroViewHolder.onBind(heroList.get(i));
     }
 
     @Override
     public int getItemCount() {
-        return heroSummaryList.size();
+        return heroList.size();
+    }
+
+    public void setData(List<Hero> heroes) {
+        heroList = heroes;
+        notifyDataSetChanged();
     }
 }
