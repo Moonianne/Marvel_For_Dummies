@@ -22,14 +22,30 @@
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/hero_recyclerview"
-        android:layout_width="match_parent"
+        android:layout_width="394dp"
+        android:layout_height="514dp"
         android:layout_margin="8dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="116dp"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.47"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/marvel_logo" />
+        app:layout_constraintTop_toBottomOf="@+id/marvel_logo_image_view" />
+
+    <TextView
+        android:id="@+id/copyright_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/marvel_copyright"
+        android:textSize="12sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hero_recyclerview" />
 
 </android.support.constraint.ConstraintLayout>
