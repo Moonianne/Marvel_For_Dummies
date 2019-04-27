@@ -26,7 +26,8 @@ public class HeroAdapter extends RecyclerView.Adapter<HeroViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull HeroViewHolder heroViewHolder, int i) {
-        heroViewHolder.onBind(heroSummaryList.get(i));
+            heroViewHolder.onBind(heroSummaryList.get(i));
+
     }
 
     @Override
