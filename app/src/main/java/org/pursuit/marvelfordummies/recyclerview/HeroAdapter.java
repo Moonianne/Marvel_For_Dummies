@@ -14,6 +14,10 @@ public class HeroAdapter extends RecyclerView.Adapter<HeroViewHolder> {
     //TODO change genericList to list of objects from endpoint
     List<Object> genericList;
 
+    public HeroAdapter(List<Object> genericList) {
+        this.genericList = genericList;
+    }
+
     @NonNull
     @Override
     public HeroViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
