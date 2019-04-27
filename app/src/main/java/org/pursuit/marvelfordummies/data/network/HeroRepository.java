@@ -20,7 +20,7 @@ public final class HeroRepository {
         String hash = hashCalculator.calculate(timeStamp, "7cd7338a40cf7f51ee2af3a678bbe9daf9bc62ed",
           "e0f9c064715b8340e32ee57262f090e1");
         return marvelService
-          .getComics(10, timeStamp, "e0f9c064715b8340e32ee57262f090e1", hash)
+          .getComics("-modified",40, timeStamp, "e0f9c064715b8340e32ee57262f090e1", hash)
           .subscribeOn(Schedulers.io())
           .map(response -> response.data.results);
     }

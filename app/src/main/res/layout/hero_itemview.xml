@@ -7,25 +7,27 @@
     android:layout_height="wrap_content"
     android:elevation="8dp"
     app:cardCornerRadius="8dp">
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    android:layout_margin="8dp">
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <TextView
-            android:id="@+id/hero_name_itemview"
+            android:id="@+id/hero_name_text_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
             android:gravity="center"
             android:textSize="25sp"
             app:layout_constraintBottom_toTopOf="@id/hero_image_itemview"
-            android:tooltipText="@string/hero_name_tooltip"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:hint="@string/hero_name_tooltip" />
+            />
 
         <ImageView
             android:id="@+id/hero_image_itemview"
@@ -34,8 +36,9 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/hero_name_itemview" />
-
+            app:layout_constraintTop_toBottomOf="@id/hero_name_itemview"         
+            />
+      
     </android.support.constraint.ConstraintLayout>
 
 </android.support.v7.widget.CardView>
