@@ -16,10 +16,39 @@
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/bio_textView"
+        android:layout_width="288dp"
+        android:layout_height="68dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="8dp"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        tools:hint="BIO" />
+
+    <TextView
+        android:id="@+id/powers_textView"
+        android:layout_width="288dp"
+        android:layout_height="68dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="@+id/bio_textView"
+        app:layout_constraintStart_toStartOf="@+id/bio_textView"
+        app:layout_constraintTop_toBottomOf="@+id/bio_textView"
+        tools:hint="POWERS" />
+
+    <Button
+        android:id="@+id/mcu_link_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="146dp"
-        tools:layout_editor_absoluteY="450dp" />
+        android:layout_marginEnd="28dp"
+        android:layout_marginBottom="16dp"
+        android:text="Link"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
 </android.support.constraint.ConstraintLayout>
