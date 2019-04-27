@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.ImageView;
 
 import org.pursuit.marvelfordummies.recyclerview.HeroAdapter;
 
@@ -14,6 +15,7 @@ public final class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity.DATA";
 
     private List<HeroSummary> heroSummaryList;
+    private ImageView image_logo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +26,7 @@ public final class MainActivity extends AppCompatActivity {
             heroSummaryList.add(new DummyHero());
         }
         initHeroRecyclerView();
+
 
     }
 

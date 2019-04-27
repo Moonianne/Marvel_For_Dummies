@@ -8,7 +8,6 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
-import org.pursuit.marvelfordummies.DummyHero;
 import org.pursuit.marvelfordummies.HeroSummary;
 import org.pursuit.marvelfordummies.R;
 
@@ -23,7 +22,8 @@ class HeroViewHolder extends RecyclerView.ViewHolder {
 
     //TODO Pass object/primitve onBind needs
     void onBind(HeroSummary heroSummary) {
-        itemView.<TextView>findViewById(R.id.hero_name_itemview).setText(heroSummary.getName());
-        Picasso.get().load(heroSummary.getImage()).into(itemView.<ImageView>findViewById(R.id.hero_image_itemview));
+        itemView.<TextView>findViewById(R.id.hero_name_text_view).setText(heroSummary.getName());
+        Picasso.get().load(heroSummary.getImage()).into(itemView.<ImageView>findViewById(R.id.hero_item_imageview));
+
     }
 }

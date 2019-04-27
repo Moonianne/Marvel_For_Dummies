@@ -7,14 +7,13 @@
     tools:context=".MainActivity">
 
     <ImageView
-        android:id="@+id/marvel_logo"
+        android:id="@+id/marvel_logo_image_view"
         android:layout_width="78dp"
         android:layout_height="64dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="4dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:src="@drawable/ic_launcher_background"
         app:layout_constraintBottom_toTopOf="@+id/hero_recyclerview"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
