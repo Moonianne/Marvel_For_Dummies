@@ -10,8 +10,11 @@ public interface MarvelService {
     String END_POINT = "characters";
 
     @GET(END_POINT)
-    Observable<HeroDataResponse> getComics(@Query("limit") long limit,
+    Observable<HeroDataResponse> getComics(@Query("orderBy") String orderBy,
+                                           @Query("limit") long limit,
                                            @Query("ts") String timeStamp,
                                            @Query("apikey") String apiKey,
                                            @Query("hash") String hash);
+
+
 }
