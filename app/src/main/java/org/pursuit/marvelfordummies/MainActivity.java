@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 
 import org.pursuit.marvelfordummies.dummymodel.DummyHero;
 import org.pursuit.marvelfordummies.dummymodel.HeroSummary;
@@ -33,6 +34,6 @@ public final class MainActivity extends AppCompatActivity {
     void initHeroRecyclerView(){
         RecyclerView heroRecyclerView = findViewById(R.id.hero_recyclerview);
         heroRecyclerView.setAdapter(new HeroAdapter(heroSummaryList));
-        heroRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        heroRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
     }
 }

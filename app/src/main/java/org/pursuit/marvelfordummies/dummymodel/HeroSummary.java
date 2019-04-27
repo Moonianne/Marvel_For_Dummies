@@ -4,4 +4,6 @@ public interface HeroSummary {
     String getName();
 
     String getImage();
+
+
 }
