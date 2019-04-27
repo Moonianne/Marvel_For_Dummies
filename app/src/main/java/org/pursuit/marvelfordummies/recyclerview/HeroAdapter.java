@@ -3,11 +3,9 @@ package org.pursuit.marvelfordummies.recyclerview;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 
-import org.pursuit.marvelfordummies.DummyHero;
-import org.pursuit.marvelfordummies.HeroSummary;
+import org.pursuit.marvelfordummies.dummymodel.HeroSummary;
 import org.pursuit.marvelfordummies.R;
 
 import java.util.List;
