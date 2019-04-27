@@ -6,32 +6,33 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import org.pursuit.marvelfordummies.DummyHero;
+import org.pursuit.marvelfordummies.HeroSummary;
 import org.pursuit.marvelfordummies.R;
 
 import java.util.List;
 
 public class HeroAdapter extends RecyclerView.Adapter<HeroViewHolder> {
     //TODO change genericList to list of objects from endpoint
-    List<Object> genericList;
+    private List<HeroSummary> heroSummaryList;
 
-    public HeroAdapter(List<Object> genericList) {
-        this.genericList = genericList;
+    public HeroAdapter(List<HeroSummary> genericList) {
+        this.heroSummaryList = genericList;
     }
 
     @NonNull
     @Override
     public HeroViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View childView = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.hero_itemview, viewGroup, false);
-        return new HeroViewHolder(childView);
+        return new HeroViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.hero_itemview, viewGroup, false));
     }
 
     @Override
     public void onBindViewHolder(@NonNull HeroViewHolder heroViewHolder, int i) {
-        heroViewHolder.onBind(i);
+        heroViewHolder.onBind(heroSummaryList.get(i));
     }
 
     @Override
     public int getItemCount() {
-        return genericList.size();
+        return heroSummaryList.size();
     }
 }

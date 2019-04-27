@@ -44,6 +44,14 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:hint="@string/hero_name_tooltip" />
 
+        <ImageView
+            android:id="@+id/hero_image_itemview"
+            app:layout_constraintTop_toBottomOf="@id/hero_name_itemview"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
     </android.support.constraint.ConstraintLayout>
 
 </android.support.v7.widget.CardView>
