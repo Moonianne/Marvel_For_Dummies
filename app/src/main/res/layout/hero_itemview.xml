@@ -1,56 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/hero_itemview_container"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:tools="http://schemas.android.com/tools"
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintLeft_toLeftOf="parent"
     app:layout_constraintRight_toRightOf="parent"
     app:layout_constraintTop_toTopOf="parent"
     app:cardCornerRadius="8dp"
-    android:elevation="8dp">
+    android:elevation="8dp"
+    android:layout_margin="8dp">
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <ImageView
-            android:id="@+id/recycler_view_hero_image"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="16dp"
-            android:src="@drawable/ic_launcher_background"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:id="@+id/hero_item_imageview"
+            android:layout_width="361dp"
+            android:layout_height="601dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:src="@mipmap/ic_launcher"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
 
         <TextView
-            android:id="@+id/hero_name_itemview"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
+            android:id="@+id/hero_name_text_view"
+            android:layout_width="326dp"
+            android:layout_height="39dp"
+            android:layout_marginTop="16dp"
             android:gravity="center"
-            android:textSize="25sp"
-            android:tooltipText="@string/hero_name_tooltip"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:hint="@string/hero_name_tooltip" />
-
-        <ImageView
-            android:id="@+id/hero_image_itemview"
-            app:layout_constraintTop_toBottomOf="@id/hero_name_itemview"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:textSize="30sp"
+            android:tooltipText="HERO NAME"
+            app:layout_constraintEnd_toEndOf="@+id/hero_item_imageview"
+            app:layout_constraintHorizontal_bias="0.485"
+            app:layout_constraintStart_toStartOf="@+id/hero_item_imageview"
+            app:layout_constraintTop_toTopOf="@+id/hero_item_imageview"
+            tools:text="DUMMY TEXT" />
 
     </android.support.constraint.ConstraintLayout>
 
