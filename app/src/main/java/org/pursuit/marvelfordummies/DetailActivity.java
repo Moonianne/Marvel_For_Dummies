@@ -30,6 +30,10 @@ public class DetailActivity extends AppCompatActivity {
         setContentView(R.layout.hero_detail_layout);
         initViews();
 
+        getHeroIntent();
+        //Picasso.get().load(hero.getImage()).into(heroImage);
+        //bioTextView.setText(hero.description);
+
         linkBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -38,7 +42,7 @@ public class DetailActivity extends AppCompatActivity {
         });
     }
 
-    public static Intent newInstance(Context context, Hero hero){
+    public static Intent newInstance(Context context, Hero hero) {
         Intent intent = new Intent(context, DetailActivity.class);
         intent.putExtra(HERO_NAME, hero.name);
         intent.putExtra(HERO_DESCRIPTION, hero.description);
@@ -46,12 +50,17 @@ public class DetailActivity extends AppCompatActivity {
         return intent;
     }
 
-    public void initViews(){
+    public void initViews() {
         heroImage = findViewById(R.id.hero_detail_imageView);
         bioTextView = findViewById(R.id.bio_textView);
         linkBtn = findViewById(R.id.mcu_link_button);
 
+    }
 
-
+    private void getHeroIntent() {
+        Intent intent = getIntent();
+        heroName = intent.getStringExtra(HERO_NAME);
+        heroDescription = intent.getStringExtra(HERO_DESCRIPTION);
+        heroThumbnail = intent.getStringExtra(HERO_THUMBNAIL);
     }
 }
