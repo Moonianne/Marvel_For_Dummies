@@ -21,12 +21,11 @@ public class DetailActivity extends AppCompatActivity {
     private static String heroLink;
 
     private static final String HERO_LINK = "HERO LINK";
-    private static final String HERO_PATH = "https://marvelcinematicuniverse.fandom.com/wiki/Special:Search?query=";
     private static final String HERO_NAME = "HERO NAME";
     private static final String HERO_DESCRIPTION = "HERO DESC";
     private static final String HERO_THUMBNAIL = "HERO THUMBNAIL";
 
-    private ImageView heroImage, logo;
+    private ImageView heroImage;
     private TextView bioTextView, heroNameTextView;
     private Button linkBtn;
 
@@ -74,7 +73,6 @@ public class DetailActivity extends AppCompatActivity {
         bioTextView = findViewById(R.id.bio_textView);
         linkBtn = findViewById(R.id.mcu_link_button);
         heroNameTextView = findViewById(R.id.detail_hero_name_text_view);
-        logo = findViewById(R.id.logo_image_view);
     }
 
     private void getHeroIntent() {
