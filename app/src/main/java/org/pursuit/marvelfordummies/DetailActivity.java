@@ -18,7 +18,9 @@ public class DetailActivity extends AppCompatActivity {
     private static String heroName;
     private static String heroDescription;
     private static String heroThumbnail;
+    private static String heroLink;
 
+    private static final String HERO_LINK = "HERO LINK";
     private static final String HERO_PATH = "https://marvelcinematicuniverse.fandom.com/wiki/Special:Search?query=";
     private static final String HERO_NAME = "HERO NAME";
     private static final String HERO_DESCRIPTION = "HERO DESC";
@@ -38,7 +40,7 @@ public class DetailActivity extends AppCompatActivity {
         getHeroIntent();
         heroNameTextView.setText(heroName);
 
-        if (heroThumbnail.equals("http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg")){
+        if (heroThumbnail.equals("http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg")) {
             Glide.with(this)
                     .load(R.drawable.groot_dancing)
                     .into(heroImage);
@@ -53,13 +55,14 @@ public class DetailActivity extends AppCompatActivity {
 
         }
         linkBtn.setOnClickListener(v -> {
-            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(HERO_PATH + heroName));
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(heroLink));
             startActivity(intent);
         });
     }
 
     public static Intent newInstance(Context context, Hero hero) {
         Intent intent = new Intent(context, DetailActivity.class);
+        intent.putExtra(HERO_LINK, hero.urls[0].url);
         intent.putExtra(HERO_NAME, hero.name);
         intent.putExtra(HERO_DESCRIPTION, hero.description);
         intent.putExtra(HERO_THUMBNAIL, hero.getImage());
@@ -76,6 +79,7 @@ public class DetailActivity extends AppCompatActivity {
 
     private void getHeroIntent() {
         Intent intent = getIntent();
+        heroLink = intent.getStringExtra(HERO_LINK);
         heroName = intent.getStringExtra(HERO_NAME);
         heroDescription = intent.getStringExtra(HERO_DESCRIPTION);
         heroThumbnail = intent.getStringExtra(HERO_THUMBNAIL);

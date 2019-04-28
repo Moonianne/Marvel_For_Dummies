@@ -65,7 +65,7 @@ public final class Hero implements HeroSummary {
         }
     }
 
-    private final class Link {
+    public final class Link {
         public final String type;
         public final String url;
 
