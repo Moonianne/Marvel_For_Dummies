@@ -15,6 +15,4 @@ public interface MarvelService {
                                            @Query("ts") String timeStamp,
                                            @Query("apikey") String apiKey,
                                            @Query("hash") String hash);
-
-
 }

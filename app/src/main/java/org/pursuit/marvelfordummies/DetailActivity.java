@@ -20,9 +20,6 @@ public class DetailActivity extends AppCompatActivity {
         setContentView(R.layout.hero_detail_layout);
         initViews();
 
-       //Picasso.get().load(hero.getImage()).into(heroImage);
-        //bioTextView.setText(hero.description);
-
         linkBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

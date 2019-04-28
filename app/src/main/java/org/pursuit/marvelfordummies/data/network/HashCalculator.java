@@ -5,14 +5,14 @@ import android.support.annotation.Nullable;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-public final class HashCalculator {
+final class HashCalculator {
     /**
      * Calculate the has using MD5 digest algorithm.
      *
      * @param args - arguments to concatenate and hash
      * @return - the MD5 hash of the concatenated args
      */
-    public String calculate(String... args) {
+    String calculate(String... args) {
         String input = concatenateArgs(args);
         byte[] digest = generateDigest(input);
         return toHexString(digest);

@@ -11,18 +11,15 @@ import org.pursuit.marvelfordummies.util.MarvelUseCaseProvider;
 import java.util.Collections;
 
 public final class MainActivity extends AppCompatActivity {
-    private static final String TAG = "MainActivity.DATA";
-
-    IMarvelUseCase useCase;
-    HeroAdapter heroAdapter;
+    private HeroAdapter heroAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        useCase = MarvelUseCaseProvider.newInstance();
-        initHeroRecyclerView();
 
+        initHeroRecyclerView();
+        IMarvelUseCase useCase = MarvelUseCaseProvider.newInstance();
         useCase.getHeroList(liveHeroList -> heroAdapter.setData(liveHeroList),
           () -> {
               //No-op
@@ -33,6 +30,8 @@ public final class MainActivity extends AppCompatActivity {
         RecyclerView heroRecyclerView = findViewById(R.id.hero_recyclerview);
         heroAdapter = new HeroAdapter(Collections.emptyList());
         heroRecyclerView.setAdapter(heroAdapter);
-        heroRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+        heroRecyclerView.setLayoutManager(
+          new LinearLayoutManager(
+            this, LinearLayoutManager.HORIZONTAL, false));
     }
 }

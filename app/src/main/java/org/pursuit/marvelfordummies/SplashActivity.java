@@ -9,26 +9,19 @@ import android.widget.ImageView;
 import com.bumptech.glide.Glide;
 
 public class SplashActivity extends AppCompatActivity {
-    private ImageView splashImage;
-    private static int SPLASH_SCREEN_TIMER = 2500;
-    private Intent toEndGameFragment;
+    private static final int SPLASH_SCREEN_TIMER = 2500;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        splashImage = findViewById(R.id.splash_screen_image);
-
         Glide.with(SplashActivity.this)
-                .load(R.drawable.marvelsplash)
-                .into(splashImage);
-
-
+          .load(R.drawable.marvelsplash)
+          .into(this.<ImageView>findViewById(R.id.splash_screen_image));
         new Handler().postDelayed(() -> {
-
-            toEndGameFragment = new Intent(SplashActivity.this, MainActivity.class);
-            startActivity(toEndGameFragment);
+            startActivity(new Intent(this, MainActivity.class));
             finish();
         }, SPLASH_SCREEN_TIMER);
     }
