@@ -37,6 +37,7 @@ public final class MarvelUseCase implements IMarvelUseCase {
             });
     }
 
+    @Override
     public void dispose() {
         disposable.dispose();
     }

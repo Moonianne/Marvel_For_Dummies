@@ -11,6 +11,7 @@ import org.pursuit.marvelfordummies.util.MarvelUseCaseProvider;
 import java.util.Collections;
 
 public final class MainActivity extends AppCompatActivity {
+    private IMarvelUseCase useCase;
     private HeroAdapter heroAdapter;
 
     @Override
@@ -19,11 +20,17 @@ public final class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         initHeroRecyclerView();
-        IMarvelUseCase useCase = MarvelUseCaseProvider.newInstance();
+        useCase = MarvelUseCaseProvider.newInstance();
         useCase.getHeroList(liveHeroList -> heroAdapter.setData(liveHeroList),
           () -> {
               //No-op
           });
+    }
+
+    @Override
+    protected void onDestroy() {
+        useCase.dispose();
+        super.onDestroy();
     }
 
     private void initHeroRecyclerView() {
