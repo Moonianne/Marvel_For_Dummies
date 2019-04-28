@@ -26,6 +26,7 @@
         android:layout_marginTop="48dp"
         android:layout_marginEnd="8dp"
         android:gravity="center"
+        android:fontFamily="@font/bangers"
         android:text="basivcbdsknkajsbdljfkdjbdjimkgbsdfJKGBDSK;SFKDSBFKpaulFBSGSFND"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -42,6 +43,7 @@
         android:gravity="center"
         android:text="anoaidn;gdsgkfdsNBGLJDbgbdsgbsbgjhisdbkgjdsbgjdsbgfadjlgkdf"
         android:textSize="30sp"
+        android:fontFamily="@font/bangers"
         app:layout_constraintEnd_toEndOf="@+id/bio_textView"
         app:layout_constraintHorizontal_bias="0.666"
         app:layout_constraintStart_toStartOf="@+id/bio_textView"
@@ -55,6 +57,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:text="Link"
+        android:fontFamily="@font/bangers"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -66,6 +69,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
+        android:fontFamily="@font/bangers"
         android:text="@string/marvel_copyright"
         android:textSize="12sp"
         android:textStyle="bold|italic"
