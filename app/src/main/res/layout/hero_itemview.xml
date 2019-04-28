@@ -10,7 +10,8 @@
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="500dp">
+        android:layout_height="500dp"
+        android:background="@color/marvelAccent">
 
         <TextView
             android:id="@+id/hero_name_text_view"
@@ -22,7 +23,8 @@
             app:layout_constraintBottom_toTopOf="@id/hero_image_itemview"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:textColor="@android:color/black"/>
 
         <ImageView
             android:id="@+id/hero_image_itemview"

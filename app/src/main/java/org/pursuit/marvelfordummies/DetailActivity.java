@@ -23,8 +23,8 @@ public class DetailActivity extends AppCompatActivity {
     private static final String HERO_DESCRIPTION = "HERO DESC";
     private static final String HERO_THUMBNAIL = "HERO THUMBNAIL";
 
-    private ImageView heroImage;
-    private TextView bioTextView;
+    private ImageView heroImage, logo;
+    private TextView bioTextView, heroNameTextView;
     private Button linkBtn;
 
     @Override
@@ -36,6 +36,7 @@ public class DetailActivity extends AppCompatActivity {
         getHeroIntent();
         Picasso.get().load(heroThumbnail).into(heroImage);
         bioTextView.setText(heroDescription);
+        heroNameTextView.setText(heroName);
 
         linkBtn.setOnClickListener(v -> {
             Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(HERO_PATH + heroName));
@@ -55,7 +56,8 @@ public class DetailActivity extends AppCompatActivity {
         heroImage = findViewById(R.id.hero_detail_imageView);
         bioTextView = findViewById(R.id.bio_textView);
         linkBtn = findViewById(R.id.mcu_link_button);
-
+        heroNameTextView = findViewById(R.id.detail_hero_name_text_view);
+        logo = findViewById(R.id.logo_image_view);
     }
 
     private void getHeroIntent() {
@@ -63,5 +65,6 @@ public class DetailActivity extends AppCompatActivity {
         heroName = intent.getStringExtra(HERO_NAME);
         heroDescription = intent.getStringExtra(HERO_DESCRIPTION);
         heroThumbnail = intent.getStringExtra(HERO_THUMBNAIL);
+
     }
 }
