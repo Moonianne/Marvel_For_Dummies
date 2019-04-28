@@ -3,4 +3,8 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="marvelBackground">#AA1428</color>
+    <color name="marvelAccent">#F3d403</color>
+
+
 </resources>
