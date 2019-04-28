@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.squareup.picasso.Picasso;
 
 import org.pursuit.marvelfordummies.data.model.Hero;
@@ -27,6 +28,7 @@ public class DetailActivity extends AppCompatActivity {
     private TextView bioTextView, heroNameTextView;
     private Button linkBtn;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,10 +36,22 @@ public class DetailActivity extends AppCompatActivity {
         initViews();
 
         getHeroIntent();
-        Picasso.get().load(heroThumbnail).into(heroImage);
-        bioTextView.setText(heroDescription);
         heroNameTextView.setText(heroName);
 
+        if (heroThumbnail.equals("http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg")){
+            Glide.with(this)
+                    .load(R.drawable.groot_dancing)
+                    .into(heroImage);
+        }else {
+            Picasso.get().load(heroThumbnail).into(heroImage);
+        }
+        if (heroDescription.length() <= 5) {
+            bioTextView.setText(getString(R.string.classified_string));
+            bioTextView.setTextSize(100);
+        }else {
+            bioTextView.setText(heroDescription);
+
+        }
         linkBtn.setOnClickListener(v -> {
             Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(HERO_PATH + heroName));
             startActivity(intent);
