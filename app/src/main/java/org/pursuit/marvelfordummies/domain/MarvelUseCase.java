@@ -38,7 +38,7 @@ public final class MarvelUseCase implements IMarvelUseCase {
                         });
     }
 
-    public void longerHTTPTimeout() {
+    private void longerHTTPTimeout() {
         final OkHttpClient okHttpClient = new OkHttpClient.Builder()
                 .readTimeout(10, TimeUnit.SECONDS)
                 .connectTimeout(10, TimeUnit.SECONDS)
