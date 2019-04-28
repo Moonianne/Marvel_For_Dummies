@@ -12,4 +12,8 @@ public interface MarvelCallBack {
     interface Failure {
         void onFailure();
     }
+
+    interface Complete {
+        void onComplete();
+    }
 }
