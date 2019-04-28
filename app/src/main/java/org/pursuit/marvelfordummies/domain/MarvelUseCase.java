@@ -11,6 +11,7 @@ import java.util.List;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Action;
 
 public final class MarvelUseCase implements IMarvelUseCase {
     private static final String TAG = "MarvelUseCase.Network";
@@ -23,34 +24,36 @@ public final class MarvelUseCase implements IMarvelUseCase {
     }
 
     public void getHeroList(MarvelCallBack.Success success,
-                            MarvelCallBack.Failure failure) {
+                            MarvelCallBack.Failure failure,
+                            MarvelCallBack.Complete complete) {
         disposable = repository.getHeroes()
-          .observeOn(AndroidSchedulers.mainThread())
-          .subscribe(heroes -> {
-                Log.d(TAG, "getHeroList: " + heroes.get(0).name);
-                liveHeroList = new LinkedList<>(heroes);
-                success.onSuccess(liveHeroList);
-            },
-            throwable -> {
-                Log.d(TAG, "getHeroList: " + throwable.getMessage());
-                failure.onFailure();
-            });
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(heroes -> {
+                            Log.d(TAG, "getHeroList: " + heroes.get(0).name);
+                            liveHeroList = new LinkedList<>(heroes);
+                            success.onSuccess(liveHeroList);
+                        },
+                        throwable -> {
+                            Log.d(TAG, "getHeroList: " + throwable.getMessage());
+                            failure.onFailure();
+                        }, complete::onComplete);
     }
 
     @Override
     public void getSearchedHeroes(String search,
                                   MarvelCallBack.Success success,
-                                  MarvelCallBack.Failure failure) {
+                                  MarvelCallBack.Failure failure,
+                                  MarvelCallBack.Complete complete) {
         disposable = repository.getSearchedHeroes(search)
-          .observeOn(AndroidSchedulers.mainThread())
-          .subscribe(heroes -> {
-                Log.d(TAG, "getSearch: " + heroes.get(0).name);
-                success.onSuccess(heroes);
-            },
-            throwable -> {
-                Log.d(TAG, "getSearchHeroes: " + throwable.getMessage());
-                failure.onFailure();
-            });
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(heroes -> {
+                            Log.d(TAG, "getSearch: " + heroes.get(0).name);
+                            success.onSuccess(heroes);
+                        },
+                        throwable -> {
+                            Log.d(TAG, "getSearchHeroes: " + throwable.getMessage());
+                            failure.onFailure();
+                        }, complete::onComplete);
     }
 
     @Override

@@ -1,5 +1,6 @@
 package org.pursuit.marvelfordummies;
 
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -22,19 +23,22 @@ import io.reactivex.schedulers.Schedulers;
 public final class MainActivity extends AppCompatActivity implements SearchView.OnQueryTextListener {
     private IMarvelUseCase useCase;
     private HeroAdapter heroAdapter;
+    private AlertDialog alertDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        alertDialog = getLoadingDialog();
 
         this.<SearchView>findViewById(R.id.search_view).setOnQueryTextListener(this);
+
         initHeroRecyclerView();
         useCase = MarvelUseCaseProvider.newInstance();
+        alertDialog.show();
         useCase.getHeroList(liveHeroList -> heroAdapter.setData(liveHeroList),
-          () -> {
-              //TODO: Setup Failure Response
-          });
+                () -> {
+             }, () -> alertDialog.dismiss());
     }
 
     @Override
@@ -48,32 +52,39 @@ public final class MainActivity extends AppCompatActivity implements SearchView.
         heroAdapter = new HeroAdapter(Collections.emptyList());
         heroRecyclerView.setAdapter(heroAdapter);
         heroRecyclerView.setLayoutManager(
-          new LinearLayoutManager(
-            this, LinearLayoutManager.HORIZONTAL, false));
+                new LinearLayoutManager(
+                        this, LinearLayoutManager.HORIZONTAL, false));
     }
 
     @Override
     public boolean onQueryTextSubmit(String s) {
+        alertDialog.show();
         useCase.getSearchedHeroes(s,
-          liveHeroList -> heroAdapter.setData(liveHeroList),
-          () -> {
-              //TODO: Setup Failure Response
-          });
+                liveHeroList -> heroAdapter.setData(liveHeroList),
+                () -> {
+                }, () -> alertDialog.dismiss());
         return false;
     }
 
     @Override
     public boolean onQueryTextChange(String s) {
         Disposable disposable = Observable.fromIterable(useCase.getLiveHeroList())
-          .subscribeOn(Schedulers.computation())
-          .filter(hero -> heroFilter(hero, s))
-          .toList()
-          .observeOn(AndroidSchedulers.mainThread())
-          .subscribe(heroes -> heroAdapter.setData(heroes));
+                .subscribeOn(Schedulers.computation())
+                .filter(hero -> heroFilter(hero, s))
+                .toList()
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(heroes -> heroAdapter.setData(heroes));
         return false;
     }
 
     private boolean heroFilter(Hero h, String s) {
         return h.name.toLowerCase().startsWith(s.toLowerCase());
+    }
+
+    public final AlertDialog getLoadingDialog() {
+        return new AlertDialog.Builder(this)
+                .setTitle(R.string.loading_dialog_title)
+                .setView(R.layout.loading_dialog)
+                .create();
     }
 }

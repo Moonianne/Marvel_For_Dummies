@@ -6,11 +6,13 @@ import java.util.List;
 
 public interface IMarvelUseCase {
     void getHeroList(MarvelCallBack.Success success,
-                     MarvelCallBack.Failure failure);
+                     MarvelCallBack.Failure failure,
+                     MarvelCallBack.Complete complete);
 
     void getSearchedHeroes(String search,
                            MarvelCallBack.Success success,
-                           MarvelCallBack.Failure failure);
+                           MarvelCallBack.Failure failure,
+                           MarvelCallBack.Complete complete);
 
     List<Hero> getLiveHeroList();
 

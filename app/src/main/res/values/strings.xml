@@ -3,4 +3,6 @@
     <string name="hero_name_tooltip">HERO NAME</string>
     <string name="marvel_copyright">Data provided by Marvel. © 2014 Marvel</string>
     <string name="detail_activity_tooltip">DETAIL ACTIVITY</string>
+    <string name="loading_text">Please Wait… ⏳</string>
+    <string name="loading_dialog_title">Loading Heroes</string>
 </resources>
