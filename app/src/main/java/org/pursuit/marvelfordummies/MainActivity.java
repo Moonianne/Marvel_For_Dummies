@@ -33,7 +33,7 @@ public final class MainActivity extends AppCompatActivity implements SearchView.
         useCase = MarvelUseCaseProvider.newInstance();
         useCase.getHeroList(liveHeroList -> heroAdapter.setData(liveHeroList),
           () -> {
-              //No-op
+              //TODO: Setup Failure Response
           });
     }
 
@@ -54,6 +54,11 @@ public final class MainActivity extends AppCompatActivity implements SearchView.
 
     @Override
     public boolean onQueryTextSubmit(String s) {
+        useCase.getSearchedHeroes(s,
+          liveHeroList -> heroAdapter.setData(liveHeroList),
+          () -> {
+              //TODO: Setup Failure Response
+          });
         return false;
     }
 
