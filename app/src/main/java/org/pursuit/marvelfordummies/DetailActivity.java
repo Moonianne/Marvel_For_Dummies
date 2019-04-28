@@ -20,7 +20,6 @@ public class DetailActivity extends AppCompatActivity {
     private static String heroThumbnail;
 
     private static final String HERO_PATH = "https://marvelcinematicuniverse.fandom.com/wiki/Special:Search?query=";
-    //private static final String HERO_PATH = "https://marvelcinematicuniverse.fandom.com/wiki/";
     private static final String HERO_NAME = "HERO NAME";
     private static final String HERO_DESCRIPTION = "HERO DESC";
     private static final String HERO_THUMBNAIL = "HERO THUMBNAIL";
