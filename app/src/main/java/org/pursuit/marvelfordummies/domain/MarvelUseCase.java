@@ -8,8 +8,10 @@ import org.pursuit.marvelfordummies.data.model.Hero;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
+import okhttp3.OkHttpClient;
 
 public final class MarvelUseCase implements IMarvelUseCase {
     private static final String TAG = "MarvelUseCase.Network";
@@ -22,16 +24,24 @@ public final class MarvelUseCase implements IMarvelUseCase {
 
     public void getHeroList(MarvelCallBack.Success success,
                             MarvelCallBack.Failure failure) {
+        longerHTTPTimeout();
         repository.getHeroes()
-          .observeOn(AndroidSchedulers.mainThread())
-          .subscribe(heroes -> {
-                Log.d(TAG, "getHeroList: " + heroes.get(0).name);
-                liveHeroList = new LinkedList<>(heroes);
-                success.onSuccess(liveHeroList);
-            },
-            throwable -> {
-                Log.d(TAG, "getHeroList: " + throwable.getMessage());
-                failure.onFailure();
-            });
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(heroes -> {
+                            Log.d(TAG, "getHeroList: " + heroes.get(0).name);
+                            liveHeroList = new LinkedList<>(heroes);
+                            success.onSuccess(liveHeroList);
+                        },
+                        throwable -> {
+                            Log.d(TAG, "getHeroList: " + throwable.getMessage());
+                            failure.onFailure();
+                        });
+    }
+
+    private void longerHTTPTimeout() {
+        final OkHttpClient okHttpClient = new OkHttpClient.Builder()
+                .readTimeout(15, TimeUnit.SECONDS)
+                .connectTimeout(15, TimeUnit.SECONDS)
+                .build();
     }
 }
