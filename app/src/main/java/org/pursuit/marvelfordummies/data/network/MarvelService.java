@@ -15,4 +15,11 @@ public interface MarvelService {
                                            @Query("ts") String timeStamp,
                                            @Query("apikey") String apiKey,
                                            @Query("hash") String hash);
+
+    @GET(END_POINT)
+    Observable<HeroDataResponse> getSearchedHero(@Query("nameStartsWith") String searchName,
+                                                 @Query("limit") long limit,
+                                                 @Query("ts") String timeStamp,
+                                                 @Query("apikey") String apiKey,
+                                                 @Query("hash") String hash);
 }

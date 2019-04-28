@@ -38,6 +38,22 @@ public final class MarvelUseCase implements IMarvelUseCase {
     }
 
     @Override
+    public void getSearchedHeroes(String search,
+                                  MarvelCallBack.Success success,
+                                  MarvelCallBack.Failure failure) {
+        disposable = repository.getSearchedHeroes(search)
+          .observeOn(AndroidSchedulers.mainThread())
+          .subscribe(heroes -> {
+                Log.d(TAG, "getSearch: " + heroes.get(0).name);
+                success.onSuccess(heroes);
+            },
+            throwable -> {
+                Log.d(TAG, "getSearchHeroes: " + throwable.getMessage());
+                failure.onFailure();
+            });
+    }
+
+    @Override
     public List<Hero> getLiveHeroList() {
         return liveHeroList;
     }

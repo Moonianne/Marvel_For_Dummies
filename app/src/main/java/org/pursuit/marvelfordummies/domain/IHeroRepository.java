@@ -8,4 +8,6 @@ import io.reactivex.Observable;
 
 public interface IHeroRepository {
     Observable<List<Hero>> getHeroes();
+
+    Observable<List<Hero>> getSearchedHeroes(String search);
 }
