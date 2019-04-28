@@ -47,7 +47,7 @@ public class DetailActivity extends AppCompatActivity {
         }
         if (heroDescription.length() <= 5) {
             bioTextView.setText(getString(R.string.classified_string));
-            bioTextView.setTextSize(100);
+            bioTextView.setTextSize(60);
         }else {
             bioTextView.setText(heroDescription);
 

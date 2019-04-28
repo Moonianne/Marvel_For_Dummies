@@ -4,5 +4,5 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="marvelBackground" tools:ignore="MissingDefaultResource">#AA1428</color>
-    <color name="marvelAccent">#F3d403</color>
+    <color name="marvelAccent">#E50B14</color>
 </resources>
