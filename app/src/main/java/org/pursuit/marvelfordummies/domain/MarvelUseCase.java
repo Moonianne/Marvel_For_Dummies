@@ -38,6 +38,11 @@ public final class MarvelUseCase implements IMarvelUseCase {
     }
 
     @Override
+    public List<Hero> getLiveHeroList() {
+        return liveHeroList;
+    }
+
+    @Override
     public void dispose() {
         disposable.dispose();
     }
