@@ -24,6 +24,11 @@ final class HeroViewHolder extends RecyclerView.ViewHolder {
 
     void onBind(Hero hero) {
         itemView.<TextView>findViewById(R.id.hero_name_text_view).setText(hero.name);
+        Picasso.get().load(hero.getImage()).into(itemView.<ImageView>findViewById(R.id.hero_image_itemview));
+        itemView.setOnClickListener(
+                v ->
+          itemView.getContext().startActivity(DetailActivity.newInstance(itemView.getContext(), hero)));
+
 
         if (hero.getImage().equals("http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg")) {
             Glide.with(itemView.getContext())
