@@ -38,6 +38,7 @@ public class DetailActivity extends AppCompatActivity {
         return hero;
     }
     public void initViews(){
+
         heroImage = findViewById(R.id.hero_detail_imageView);
         bioTextView = findViewById(R.id.bio_textView);
         linkBtn = findViewById(R.id.mcu_link_button);
