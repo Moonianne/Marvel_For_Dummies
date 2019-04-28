@@ -5,4 +5,5 @@
     <string name="detail_activity_tooltip">DETAIL ACTIVITY</string>
     <string name="loading_text">Please Wait… ⏳</string>
     <string name="loading_dialog_title">Loading Heroes</string>
+    <string name="classified_string"> CLASSIFIED </string>
 </resources>
